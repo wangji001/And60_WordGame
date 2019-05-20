@@ -123,12 +123,11 @@ public class MainActivity extends AppCompatActivity {
 
         int index_text_first = random.nextInt(string_array.length - 1);
         int index_text_second = random.nextInt(string_array.length - 1);
+        int index_back_first = random.nextInt(color_array.length -1);
 
         int index_color_first = random.nextInt(color_array.length -1);
         int index_color_second = random.nextInt(color_array.length -1);
-
-
-
+        int index_back_second = random.nextInt(color_array.length -1);
 
         textFirst.setText(string_array[index_text_first]);
         textFirst.setTextColor(getResources().getColor(color_array[index_color_first]));
@@ -136,7 +135,34 @@ public class MainActivity extends AppCompatActivity {
 
         textSecond.setText(string_array[index_text_second]);
         textSecond.setTextColor(color_array[index_color_second]);
+        while (true) {
+            if (index_back_first == index_color_first) {
+                if ( index_back_first > color_array.length -1) {
+                    index_back_first = index_back_first - 1;
+                } else if (index_back_first < 0 ) {
+                    index_back_first = index_back_first +1;
+                }
+
+
+            } else if (index_back_second == index_color_second) {
+                if (index_back_second > color_array.length -1){
+                    index_back_second = index_back_second -1;
+                } else if (index_back_second < 0) {
+                    index_back_second = index_back_second +1;
+                }
+
+            } else {
+                break;
+            }
+            break;
+        }
+
+
+        textFirst.setBackgroundColor(getResources().getColor(color_array[index_back_first]));
+
+        textSecond.setBackgroundColor(getResources().getColor(color_array[index_back_second]));
     } // end setTextQuestion()
+
 
     public void onClickNext(View view) {
         setTextQuestion();
