@@ -1,24 +1,21 @@
 package edu.android.and60_wordgame;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView textFirst, textSecond;
-    private static final String[] COLOR_TEXT= {"검정", "파랑", "빨강", "노랑", "초록"};
-//    private static final String[] COLOR_MEAN = {"검정", "파랑", "빨강", "노랑",  "초록"};
-    private static final int[] COLOR = {Color.BLACK, Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN};
+    private int[] color_array = {R.color.colorBlack, R.color.colorBlue, R.color.colorRed, R.color.colorWhite,
+                R.color.colorGreen, R.color.colorYellow, R.color.colorPurple, R.color.colorOrange};
+    private String[] string_array;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         textFirst = findViewById(R.id.textFirst);
         textSecond = findViewById(R.id.textSecond);
+
+        string_array = getResources().getStringArray(R.array.text_color);
 
         setTextQuestion();
     } // end onCreate()
@@ -118,17 +117,25 @@ public class MainActivity extends AppCompatActivity {
 
     } // end onClickNo()
 
-    public void setTextQuestion(){
-        Random random = new Random();
-        int index = random.nextInt(COLOR.length - 1);
-        int index2 = random.nextInt(COLOR.length -1);
-        int index3 = random.nextInt(COLOR.length -1);
-        int index4 = random.nextInt(COLOR.length -1);
-       textFirst.setTextColor(COLOR[index]);
-       textFirst.setText(COLOR_TEXT[index2]);
+    public void setTextQuestion() {
 
-       textSecond.setText(COLOR_TEXT[index3]);
-       textSecond.setTextColor(COLOR[index4]);
+        Random random = new Random();
+
+        int index_text_first = random.nextInt(string_array.length - 1);
+        int index_text_second = random.nextInt(string_array.length - 1);
+
+        int index_color_first = random.nextInt(color_array.length -1);
+        int index_color_second = random.nextInt(color_array.length -1);
+
+
+
+
+        textFirst.setText(string_array[index_text_first]);
+        textFirst.setTextColor(getResources().getColor(color_array[index_color_first]));
+
+
+        textSecond.setText(string_array[index_text_second]);
+        textSecond.setTextColor(color_array[index_color_second]);
     } // end setTextQuestion()
 
     public void onClickNext(View view) {
