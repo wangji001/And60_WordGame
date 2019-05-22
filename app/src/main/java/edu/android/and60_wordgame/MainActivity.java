@@ -11,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
-
+//TODO
+// 1) 색 중복제거
+// 2) 정답/오답 경우 처리
 public class MainActivity extends AppCompatActivity {
 
     private TextView textFirst, textSecond;

@@ -54,6 +54,7 @@
         android:gravity="center"
         android:text="Text 1"
         android:textSize="40sp"
+        android:background="@drawable/text_corner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
