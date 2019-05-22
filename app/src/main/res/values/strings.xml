@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">And60_WordGame</string>
+    <string name="app_name">WordGame</string>
 
     <string-array name="text_color">
         <item>검정</item>

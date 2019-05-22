@@ -1,6 +1,9 @@
 package edu.android.and60_wordgame;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
+
         textFirst = findViewById(R.id.textFirst);
         textSecond = findViewById(R.id.textSecond);
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             case "검정":
                 if (color_right == Color.BLACK){
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -45,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             case "파랑":
                 if(color_right == Color.BLUE) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             case "빨강":
                 if(color_right == Color.RED) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             case "노랑":
                 if(color_right == Color.YELLOW) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -66,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             case "초록":
                 if(color_right == Color.GREEN) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -81,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             case "검정":
                 if (color_right != Color.BLACK){
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -88,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             case "파랑":
                 if(color_right != Color.BLUE) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -95,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             case "빨강":
                 if(color_right != Color.RED) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -102,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             case "노랑":
                 if(color_right != Color.YELLOW) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -109,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
             case "초록":
                 if(color_right != Color.GREEN) {
                     Toast.makeText(this, "정답입니다", Toast.LENGTH_SHORT).show();
+                    showAlertDialog();
                 } else {
                     Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show();
                 }
@@ -163,6 +178,34 @@ public class MainActivity extends AppCompatActivity {
         textSecond.setBackgroundColor(getResources().getColor(color_array[index_back_second]));
     } // end setTextQuestion()
 
+    public void showAlertDialog(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+        alertDialog.setTitle("정답입니다");
+        alertDialog .setMessage("다음 문제로 넘어가시겠습니까?")
+                .setCancelable(false)
+                .setPositiveButton("예",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(
+                                    DialogInterface dialog, int id) {
+                                setTextQuestion();
+                            }
+                        })
+                .setNegativeButton("아니오",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(
+                                    DialogInterface dialog, int id) {
+                                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
+      alertDialog.create();
+
+        alertDialog.show();
+
+
+    }
 
     public void onClickNext(View view) {
         setTextQuestion();
