@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
+    android:background="@color/colorWhite"
+    tools:context=".Main2Game3Activity">
 
 
     <ImageView
@@ -13,7 +14,7 @@
         android:layout_height="280dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
-
+        android:src="@drawable/game3_logo"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -31,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/game3_button_background"
         android:text="START GAME"
         android:textColor="@color/colorWhite"
         android:textSize="24sp"

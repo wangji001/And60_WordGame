@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultGame3Activity"></activity>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".Main2Activity">
+            android:name=".MainGame3Activity"
+           ></activity>
+        <activity android:name=".Main2Game3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

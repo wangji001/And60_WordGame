@@ -10,6 +10,7 @@
         <item>노랑</item>
         <item>보라</item>
         <item>주황</item>
+        <item>기본</item>
     </string-array>
 
     <string-array name="text_color_code">
